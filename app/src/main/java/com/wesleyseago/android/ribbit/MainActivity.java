@@ -43,10 +43,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Enable Local Datastore (Parse).
-        Parse.enableLocalDatastore(this);
-
-        Parse.initialize(this, "i1ur4vHQJtEtAeOvIhglJcMgrdgEKNgJEGE42yG3", "vYio4lKm42VaQGaSpws1Pd38W9ohphcgJkpWEpsn");
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
         // Test Parse
      //   ParseObject testObject = new ParseObject("TestObject");
