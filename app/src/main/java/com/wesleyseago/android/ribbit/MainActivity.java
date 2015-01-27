@@ -14,6 +14,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseObject;
 
 import java.util.Locale;
 
@@ -39,6 +42,16 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Enable Local Datastore (Parse).
+        Parse.enableLocalDatastore(this);
+
+        Parse.initialize(this, "i1ur4vHQJtEtAeOvIhglJcMgrdgEKNgJEGE42yG3", "vYio4lKm42VaQGaSpws1Pd38W9ohphcgJkpWEpsn");
+
+        // Test Parse
+     //   ParseObject testObject = new ParseObject("TestObject");
+     //   testObject.put("foo", "bar");
+     //   testObject.saveInBackground();
 
         // Make app load login screen at startup
         Intent intent = new Intent(this, LoginActivity.class);
