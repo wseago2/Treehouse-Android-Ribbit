@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -25,6 +26,7 @@ public class SignupActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_signup);
 
         mUserName = (EditText)findViewById(R.id.usernameField);
@@ -56,6 +58,8 @@ public class SignupActivity extends ActionBarActivity {
                 }
                 else {
                     // Create new user
+                    setSupportProgressBarIndeterminateVisibility(true);
+
                     ParseUser newUser = new ParseUser();
                     newUser.setUsername(username);
                     newUser.setPassword(password);
@@ -65,6 +69,8 @@ public class SignupActivity extends ActionBarActivity {
                         public void done(ParseException e) {
                             if (e == null) {
                                 //Success
+                                setSupportProgressBarIndeterminateVisibility(false);
+
                                 Intent intent = new Intent(SignupActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

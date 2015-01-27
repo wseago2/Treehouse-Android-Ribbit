@@ -2,11 +2,12 @@ package com.wesleyseago.android.ribbit;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,7 +15,6 @@ import android.widget.TextView;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -28,6 +28,10 @@ public class LoginActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Add a progress spinner in the menu bar
+        // RequestWindowFeature must be called before setContentView
+        supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_login);
 
         mSignUpTextView = (TextView)findViewById(R.id.signupText);
@@ -65,9 +69,11 @@ public class LoginActivity extends ActionBarActivity {
                 }
                 else {
                     // Login user
+                    setSupportProgressBarIndeterminateVisibility(true);
                     ParseUser.logInInBackground(username, password, new LogInCallback() {
                         @Override
                         public void done(ParseUser user, ParseException e) {
+                            setSupportProgressBarIndeterminateVisibility(false);
                             if (e == null) {
                                 // Success
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
