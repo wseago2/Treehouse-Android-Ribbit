@@ -90,15 +90,6 @@ public class EditFriendsActivity extends ListActivity {
         });
     }
 
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_edit_friends, menu);
-        return true;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -118,19 +109,24 @@ public class EditFriendsActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        if (getListView().isItemChecked(position)) {
+            if (getListView().isItemChecked(position)) {
             // Add friend
             mFriendsRelation.add(mUsers.get(position));
-            mCurrentUser.saveInBackground(new SaveCallback() {
-                @Override
-                public void done(ParseException e) {
-                    if (e != null) {
-                        Log.e(TAG, e.getMessage());
-                    }
+            }
+            else {
+                // Remove Friend
+                mFriendsRelation.remove(mUsers.get(position));
+             }
+
+        mCurrentUser.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e != null) {
+                    Log.e(TAG, e.getMessage());
                 }
-            });
-        }
-        }
+            }
+        });
+    }
 
         private void addFriendCheckmarks() {
             mFriendsRelation.getQuery().findInBackground(new FindCallback<ParseUser>() {
