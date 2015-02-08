@@ -2,19 +2,15 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.wesleyseago.android.ribbit.RecipientsActivity">
+                tools:context="com.wesleyseago.android.ribbit.ViewImageActivity">
 
-    <ListView
-        android:id="@android:id/list"
+
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:scaleType="fitCenter"/>
 
-    <TextView
-        android:id="@android:id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/empty_recipients_list_message" />
 </RelativeLayout>

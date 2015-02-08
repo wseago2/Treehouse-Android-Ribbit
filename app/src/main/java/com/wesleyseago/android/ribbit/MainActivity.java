@@ -46,6 +46,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
     protected Uri mMediaUri;
 
+
     protected DialogInterface.OnClickListener mDialogListener =
             new DialogInterface.OnClickListener() {
                 @Override
@@ -225,6 +226,9 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     }
 
 
+
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -274,6 +278,18 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 mediaScanIntent.setData(mMediaUri);
                 sendBroadcast(mediaScanIntent);
             }
+
+            Intent recipientsIntent = new Intent(this, RecipientsActivity.class);
+            recipientsIntent.setData(mMediaUri);
+            String fileType;
+            if (requestCode == PICK_PHOTO_REQUEST || requestCode == TAKE_PHOTO_REQUEST) {
+                fileType = ParseConstants.TYPE_IMAGE;
+            }
+            else {
+                fileType = ParseConstants.TYPE_VIDEO;
+            }
+            recipientsIntent.putExtra(ParseConstants.KEY_FILE_TYPE, fileType);
+            startActivity(recipientsIntent);
         }
         else if (resultCode != RESULT_CANCELED) {
             Toast.makeText(this, getString(R.string.general_error), Toast.LENGTH_LONG).show();
