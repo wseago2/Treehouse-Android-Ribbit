@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.wesleyseago.android.ribbit.SignupActivity"
+                style="@style/AuthBackground">
+
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:contentDescription="@string/content_desc_background"
+        style="@style/AuthBackgroundImage"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/app_name"
+        style="@style/AuthTitle"
+        android:layout_marginTop="180dp"/>
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:text="@string/subtitle"
+        style="@style/AuthSubTitle"/>
+
+    <LinearLayout
+        android:id="@+id/editText_layout"
+        style="@style/AuthFieldContainer"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:id="@+id/usernameField"
+            style="@style/AuthEditText"
+            android:hint="@string/username_hint"/>
+
+            <requestFocus />
+
+        <EditText
+            android:id="@+id/passwordField"
+            style="@style/AuthEditText"
+            android:inputType="textPassword"
+            android:hint="@string/password_hint"/>
+
+        <EditText
+            android:id="@+id/emailField"
+            style="@style/AuthEditText"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email_hint"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/buttonDivider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_layout"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/button_divider"
+        android:contentDescription="@string/content_desc_button_divider"/>
+
+    <Button
+        android:id="@+id/signupButton"
+        style="@style/AuthButton"
+        android:text="@string/sign_up_button_label"
+        android:layout_below="@+id/editText_layout"
+        android:layout_alignLeft="@+id/editText_layout"
+        android:layout_toLeftOf="@id/buttonDivider"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"/>
+
+    <Button
+        android:id="@+id/cancelButton"
+        style="@style/AuthButton"
+        android:text="@string/cancel_button_label"
+        android:layout_below="@+id/editText_layout"
+        android:layout_alignRight="@+id/editText_layout"
+        android:layout_toRightOf="@id/buttonDivider"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.wesleyseago.android.ribbit.LoginActivity"
+                style="@style/AuthBackground">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:contentDescription="@string/content_desc_background"
+        style="@style/AuthBackgroundImage"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/app_name"
+        style="@style/AuthTitle"
+        android:layout_marginTop="180dp"/>
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:text="@string/subtitle"
+        style="@style/AuthSubTitle"/>
+
+    <LinearLayout
+        android:id="@+id/editText_layout"
+        style="@style/AuthFieldContainer"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true">
+
+
+        <EditText
+            android:id="@+id/usernameField"
+            android:hint="@string/username_hint"
+            style="@style/AuthEditText">
+            <requestFocus />
+            </EditText>
+
+        <EditText
+            android:id="@+id/passwordField"
+            style="@style/AuthEditText"
+            android:inputType="textPassword"
+            android:hint="@string/password_hint"/>
+
+
+        </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/loginButton"
+        android:text="@string/login_button_label"
+        style="@style/AuthButton"
+        android:layout_below="@+id/editText_layout"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/signupText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_text"
+        android:layout_below="@id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:textColor="@android:color/white"
+        />
+
+
+
+
+</RelativeLayout>
