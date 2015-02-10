@@ -33,6 +33,7 @@ public class LoginActivity extends ActionBarActivity {
         supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_login);
 
+
         mSignUpTextView = (TextView)findViewById(R.id.signupText);
         mSignUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override

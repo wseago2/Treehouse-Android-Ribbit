@@ -21,6 +21,7 @@ public class SignupActivity extends ActionBarActivity {
     protected EditText mPassword;
     protected EditText mEmail;
     protected Button mSignUpButton;
+    protected Button mCancelButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,18 @@ public class SignupActivity extends ActionBarActivity {
         mUserName = (EditText)findViewById(R.id.usernameField);
         mPassword = (EditText)findViewById(R.id.passwordField);
         mEmail = (EditText)findViewById(R.id.emailField);
-        mSignUpButton = (Button)findViewById(R.id.signupButton);
+        // Add onClickListener to cancel button
+        mCancelButton = (Button)findViewById(R.id.cancelButton);
+        mCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                }
 
+            });
+
+
+        mSignUpButton = (Button)findViewById(R.id.signupButton);
         // Add OnClickListener to signupButton
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
